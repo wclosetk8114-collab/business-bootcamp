@@ -2,63 +2,247 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>お申し込み｜ビジネスブートキャンプ</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="村主悠真×つっちーのビジネスブートキャンプのお申し込みページ。参加費150,000円（税別）／165,000円（税込）。クレジットカードの分割払いに対応。">
 <meta property="og:title" content="お申し込み｜ビジネスブートキャンプ">
 <meta property="og:description" content="参加費150,000円（税別）／165,000円（税込）。クレジットカードの分割払いに対応。">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Marcellus&display=swap">
-<link rel="stylesheet" href="style.css">
 <style>
-.price{background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--gold);padding:48px 40px;max-width:640px;margin:0 auto;text-align:center}
-.price .yen{font-family:var(--min);font-size:clamp(40px,7vw,60px);line-height:1.2;letter-spacing:.02em;margin-top:10px}
-.price .yen small{font-size:.38em;margin-left:6px;color:var(--sub)}
-.price .tax{color:var(--sub);font-size:14px;margin-top:6px}
-.price ul{list-style:none;margin:28px 0 0;padding:0;text-align:left;border-top:1px solid var(--line)}
-.price li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;gap:12px}
-.price li::before{content:"・";color:var(--gold)}
-.price .btn{margin-top:32px;width:100%;max-width:360px;text-align:center}
-.price .btn[aria-disabled="true"]{background:#9a958c;pointer-events:none}
-.price .agree{font-size:12px;color:var(--sub);margin-top:16px}
-.price .agree a{color:var(--ink)}
-.split{margin-top:28px;background:var(--bg);padding:22px 24px;text-align:left;font-size:14px;color:#4a463f}
-.split b{display:block;font-family:var(--min);font-weight:500;font-size:17px;color:var(--ink);margin-bottom:6px}
-.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.steps3 div{border-top:1px solid var(--gold);padding-top:16px;min-width:0}
-.steps3 .n{font-family:var(--en);color:var(--gold);font-size:13px;letter-spacing:.2em}
-.steps3 h3{font-size:18px;margin:6px 0}
-.steps3 p{color:var(--sub);font-size:14px}
-.links{display:flex;gap:24px;flex-wrap:wrap}
-.links a{color:#8a857b}
-@media (max-width:820px){.steps3{grid-template-columns:1fr}.price{padding:36px 22px}}
+/* Layout: 静かな紙面 → 中央に濃い色の「料金」帯。申し込みボタンを要所とスマホ下部に固定 */
+:root{
+  --bg:#f7f6f2; --paper:#fff; --ink:#23211d; --sub:#6d685f; --line:#e2ded5;
+  --gold:#a88a55; --gold2:#cdb27c; --deep:#1d1c1a; --deep2:#2a2824;
+  --min:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --en:"Marcellus","Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:2;letter-spacing:.04em;padding-bottom:84px}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--min);font-weight:500;margin:0;line-height:1.6;text-wrap:balance}
+p{margin:0}
+.en{font-family:var(--en);color:var(--gold);letter-spacing:.24em;font-size:12px;display:block}
+section{padding-block:100px}
+.ttl{margin-bottom:48px}
+.ttl h2{font-size:clamp(24px,3.4vw,34px);margin-top:10px}
+.ttl p{color:var(--sub);margin-top:14px;font-size:15px;max-width:34em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--deep);color:#fff;text-decoration:none;padding:18px 40px;font-size:15px;font-weight:700;letter-spacing:.12em;border:1px solid var(--deep);transition:background .25s,color .25s}
+.btn::after{content:"";width:22px;height:1px;background:currentColor;transition:width .25s}
+.btn:hover,.btn:focus-visible{background:var(--gold);border-color:var(--gold);outline:none}
+.btn:hover::after{width:32px}
+.btn.light{background:var(--gold);border-color:var(--gold);color:var(--deep)}
+.btn.light:hover,.btn.light:focus-visible{background:#fff;border-color:#fff}
+.btn[aria-disabled="true"]{background:#9a958c;border-color:#9a958c;pointer-events:none}
+.note-s{font-size:12px;color:var(--sub);margin-top:12px}
+
+/* top */
+.top{display:flex;justify-content:space-between;padding-block:24px;font-family:var(--en);letter-spacing:.24em;font-size:11px;color:var(--sub);gap:12px;flex-wrap:wrap}
+
+/* hero */
+.hero{padding-block:30px 100px}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.badge{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:.14em;padding:5px 14px}
+.hero h1{font-size:clamp(25px,4.2vw,46px);line-height:1.55;letter-spacing:.06em;margin-top:22px}
+.hero .lead{color:var(--sub);margin-top:22px;font-size:15px;max-width:28em}
+.hero .price-mini{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}
+.hero .price-mini b{font-family:var(--min);font-weight:500;font-size:30px;letter-spacing:.02em}
+.hero .price-mini span{font-size:13px;color:var(--sub)}
+.hero .btn{margin-top:26px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair figure{margin:0;min-width:0}
+.pair figure:last-child{margin-top:48px}
+.pair img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pair figcaption{font-size:11px;color:var(--sub);margin-top:10px;line-height:1.7}
+.pair figcaption b{display:block;font-family:var(--min);font-weight:500;color:var(--ink);font-size:16px;letter-spacing:.1em}
+
+/* worry */
+.worry{background:var(--paper)}
+.worry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.worry li{border:1px solid var(--line);padding:26px 24px 22px;font-family:var(--min);font-size:17px;line-height:1.7;min-width:0;position:relative}
+.worry li::before{content:"“";position:absolute;top:-16px;left:16px;font-family:var(--en);font-size:40px;color:var(--gold2);line-height:1;background:var(--paper);padding:0 6px}
+.worry .answer{margin-top:44px;text-align:center;font-family:var(--min);font-size:clamp(19px,2.6vw,25px);line-height:2}
+.worry .answer em{font-style:normal;border-bottom:1px solid var(--gold)}
+
+/* get */
+.get{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.get div{background:var(--paper);padding:34px 28px;min-width:0;border-top:2px solid var(--gold)}
+.get .no{font-family:var(--en);color:var(--gold);font-size:28px;line-height:1}
+.get h3{font-size:21px;margin:16px 0 10px}
+.get p{color:var(--sub);font-size:14px;line-height:1.9}
+.get small{display:block;margin-top:14px;font-size:12px;color:var(--gold);letter-spacing:.08em}
+
+/* flow */
+.flow{background:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.step{min-width:0}
+.step .wk{font-family:var(--en);font-size:12px;letter-spacing:.2em;color:var(--gold);display:block;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.step h3{font-size:22px;margin:16px 0 6px}
+.step p{color:var(--sub);font-size:14px;line-height:1.9}
+
+/* mentors */
+.mentors{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mentor{background:var(--paper);min-width:0}
+.mentor img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 22%}
+.mentor .b{padding:26px 28px 32px}
+.mentor .role{font-size:12px;color:var(--sub);line-height:1.8}
+.mentor h3{font-size:26px;letter-spacing:.12em;margin-top:4px}
+.mentor .rn{font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--gold)}
+.mentor p{color:#4a463f;font-size:14px;line-height:1.95;margin-top:16px}
+.mentor .tag{display:inline-block;margin-top:18px;font-size:12px;border:1px solid var(--gold);color:var(--gold);padding:3px 12px;letter-spacing:.08em}
+.more{text-align:center;margin-top:28px;font-size:13px}
+.more a{color:var(--sub)}
+
+/* price band */
+.priceband{background:var(--deep);color:#f2efe8}
+.priceband .en{color:var(--gold2)}
+.pcard{max-width:720px;margin:0 auto;text-align:center}
+.pcard h2{font-size:clamp(22px,3vw,30px);margin-top:10px}
+.pcard .yen{font-family:var(--min);font-size:clamp(46px,8vw,72px);line-height:1.2;margin-top:28px;letter-spacing:.02em}
+.pcard .yen small{font-size:.32em;color:#a9a397;margin-left:8px}
+.pcard .tax{color:#a9a397;font-size:14px}
+.pcard ul{list-style:none;margin:36px auto 0;padding:0;text-align:left;max-width:520px;border-top:1px solid #3a3731}
+.pcard li{padding:14px 0;border-bottom:1px solid #3a3731;font-size:15px;display:flex;gap:14px}
+.pcard li::before{content:"";flex:none;width:7px;height:7px;border:1px solid var(--gold2);transform:rotate(45deg);margin-top:11px}
+.split{margin:30px auto 0;max-width:520px;background:var(--deep2);padding:20px 24px;text-align:left;font-size:13px;color:#c9c4b8;line-height:1.9}
+.split b{display:block;font-family:var(--min);font-weight:500;font-size:17px;color:#fff;margin-bottom:6px}
+.pcard .btn{margin-top:36px;width:100%;max-width:420px;padding-block:20px;font-size:16px}
+.pcard .agree{font-size:12px;color:#a9a397;margin-top:16px}
+.pcard .agree a{color:#e9e4d8}
+
+/* how to */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.how div{border-top:1px solid var(--gold);padding-top:16px;min-width:0}
+.how .n{font-family:var(--en);color:var(--gold);font-size:12px;letter-spacing:.2em}
+.how h3{font-size:18px;margin:6px 0}
+.how p{color:var(--sub);font-size:14px;line-height:1.9}
+
+/* faq */
+.faq{max-width:760px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;font-size:15px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:14px;font-family:var(--en);font-size:20px;color:var(--gold)}
+details[open] summary::after{content:"−"}
+details p{color:var(--sub);font-size:14px;padding-bottom:18px}
+summary:focus-visible{outline:1px solid var(--gold)}
+
+/* close */
+.close{background:var(--deep);color:#f2efe8;text-align:center;padding-block:110px}
+.close h2{font-size:clamp(23px,3.6vw,36px);line-height:1.9}
+.close p{color:#a9a397;font-size:14px;margin-top:18px}
+.close .btn{margin-top:32px}
+.close .note{font-size:12px;margin-top:26px;color:#8a857b}
+footer{background:var(--deep);color:#8a857b;border-top:1px solid #34322e;padding-block:24px;font-size:11px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer span:first-child{font-family:var(--en);letter-spacing:.2em}
+footer .links{display:flex;gap:20px;flex-wrap:wrap}
+footer a{color:#8a857b}
+
+/* sticky bar */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(29,28,26,.96);color:#f2efe8;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:center;gap:22px;transform:translateY(0);transition:transform .3s}
+.sticky.hide{transform:translateY(110%)}
+.sticky .p{font-size:12px;color:#c9c4b8;line-height:1.5}
+.sticky .p b{display:block;font-family:var(--min);font-weight:500;font-size:18px;color:#fff;letter-spacing:.04em}
+.sticky .btn{padding:13px 26px;font-size:14px}
+.sticky .btn::after{display:none}
+
+@media (max-width:820px){
+  section{padding-block:72px}
+  .hero{padding-bottom:72px}
+  .hero .grid{grid-template-columns:1fr;gap:40px}
+  .worry ul,.get,.mentors,.how{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .hero .btn{width:100%}
+}
+@media (max-width:440px){.steps{grid-template-columns:1fr}.sticky{gap:14px}.sticky .p b{font-size:16px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.btn,.btn::after{transition:none}}
 </style>
 </head>
 <body>
 
 <div class="wrap top"><span>BUSINESS BOOT CAMP</span><span>MURANUSHI × TSUCCHI</span></div>
 
-<header class="hero" style="padding-bottom:70px"><div class="wrap">
-  <span class="en">APPLICATION</span>
-  <h1 style="margin-top:18px;font-size:clamp(28px,4.4vw,44px)">ビジネスブートキャンプ<br>お申し込み</h1>
-  <p class="lead">説明会へのご参加、ありがとうございました。内容にご納得いただけた方は、こちらからお申し込みください。</p>
+<header class="hero"><div class="wrap grid">
+  <div>
+    <span class="badge">2026年12月〜2027年1月　2ヶ月限定・オンライン</span>
+    <h1><span style="white-space:nowrap">届けたいものは、ある。</span><br><span style="white-space:nowrap">あとは、収入に変えるだけ。</span></h1>
+    <p class="lead">説明会へのご参加、ありがとうございました。村主悠真のコンサルで視座を引き上げ、毎週のZoomでつっちーが具体的な動き方をお伝えします。仲間と一緒に助け合い、成長できる2ヶ月です。</p>
+    <div class="price-mini"><b>165,000円</b><span>（税込）／150,000円（税別）・カード分割OK</span></div>
+    <a class="btn js-pay" href="#price">このブートキャンプに申し込む</a>
+  </div>
+  <div class="pair">
+    <figure><img src="murasugi.jpg" alt="村主悠真"><figcaption><b>村主 悠真</b>一般財団法人 日本寄付財団 代表理事</figcaption></figure>
+    <figure><img src="tsucchi.jpg" alt="つっちー"><figcaption><b>つっちー</b>結び代表</figcaption></figure>
+  </div>
 </div></header>
 
-<section class="about" style="padding-block:80px"><div class="wrap">
-  <div class="ttl" style="margin-bottom:36px"><span class="en">OUTLINE</span><h2>プログラムの内容</h2></div>
-  <dl>
-    <dt>対象</dt><dd>届けたい商品・サービスは決まっていて、これからマネタイズしていきたい方</dd>
-    <dt>期間</dt><dd>2ヶ月（2026年12月〜2027年1月）</dd>
-    <dt>形式</dt><dd>オンライン</dd>
-    <dt>仲間</dt><dd>同じ2ヶ月を走る仲間と、助け合いながら成長できます。</dd>
-    <dt>村主悠真</dt><dd>月1回のコンサル（全2回）。視座・抽象度を引き上げる。世界を舞台に、多ジャンルで実績を上げてきた経験をもとにお伝えします。</dd>
-    <dt>つっちー</dt><dd>毎週のZoom。村主さんのコンサルで引き上げた視座・抽象度をもとに、毎週のZoomで、マネタイズのために「何を・どれくらい・どう動けばいいか」をお伝えします。</dd>
-  </dl>
+<section class="worry"><div class="wrap">
+  <div class="ttl"><span class="en">FOR YOU</span><h2>こんな気持ち、ありませんか</h2></div>
+  <ul>
+    <li>届けたい商品はあるのに、まだお金にできていない</li>
+    <li>値段をいくらにすればいいか、わからない</li>
+    <li>最初のお客さまを、どう見つければいいかわからない</li>
+    <li>ひとりだと、つい後回しにしてしまう</li>
+  </ul>
+  <p class="answer">その「わからない」を、2ヶ月で<br><em>ひとつずつ行動に変えていく場所</em>です。</p>
 </div></section>
 
-<section id="price"><div class="wrap">
-  <div class="price">
+<section><div class="wrap">
+  <div class="ttl"><span class="en">WHAT YOU GET</span><h2>この2ヶ月で、得られること</h2></div>
+  <div class="get">
+    <div><span class="no">01</span><h3>視座を引き上げる</h3><p>世界を舞台に、多ジャンルで実績を上げてきた村主悠真のコンサル。思考の枠を広げ、ビジネスを一段上から見直します。</p><small>村主悠真｜月1回・全2回</small></div>
+    <div><span class="no">02</span><h3>毎週、動き方を決める</h3><p>引き上げた視座をもとに、マネタイズのために「何を・どれくらい・どう動けばいいか」をお伝えします。</p><small>つっちー｜毎週のZoom</small></div>
+    <div><span class="no">03</span><h3>仲間と、育ち合う</h3><p>同じ2ヶ月を走る仲間と、助け合いながら進みます。ひとりでは止まってしまうことも、仲間がいれば続けられます。</p><small>参加者どうしで支え合う</small></div>
+  </div>
+</div></section>
+
+<section class="flow"><div class="wrap">
+  <div class="ttl"><span class="en">8 WEEKS</span><h2>2ヶ月の進み方</h2></div>
+  <div class="steps">
+    <div class="step"><span class="wk">WEEK 1–2</span><h3>決める</h3><p>商品の強みを整理し、値段・届ける相手・売り方を決めます。</p></div>
+    <div class="step"><span class="wk">WEEK 3–4</span><h3>整える</h3><p>申し込みページやSNS、案内文など、届ける準備を整えます。</p></div>
+    <div class="step"><span class="wk">WEEK 5–6</span><h3>届ける</h3><p>発信と声かけで、最初のお客さまに届けます。</p></div>
+    <div class="step"><span class="wk">WEEK 7–8</span><h3>育てる</h3><p>反応を振り返り、この先も続けていくための形にします。</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="ttl"><span class="en">MENTORS</span><h2>伴走するふたり</h2></div>
+  <div class="mentors">
+    <div class="mentor">
+      <img src="murasugi2.jpg" alt="村主悠真">
+      <div class="b">
+        <span class="role">思想家。投資家。慈善家。<br>一般財団法人 日本寄付財団 代表理事</span>
+        <h3>村主 悠真</h3><span class="rn">YUMA MURANUSHI</span>
+        <p>ビジネス・投資・経営・非営利活動・瞑想など、幅広い分野で実績を上げてきた人。その多くが、日本だけでなく世界を舞台にしています。いつも未来の視点から物事を見て、考えている人です。話してみると、自分の思考や枠を超えて、視座や抽象度がぐっと引き上がります。</p>
+        <span class="tag">月1回のコンサル（全2回）</span>
+      </div>
+    </div>
+    <div class="mentor">
+      <img src="tsucchi.jpg" alt="つっちー" style="object-position:50% 18%">
+      <div class="b">
+        <span class="role">結び代表</span>
+        <h3>つっちー</h3><span class="rn">TSUCCHI</span>
+        <p>理学療法士として1万人のリハビリに携わったのち独立。AIを使って複数の事業を自ら立ち上げてきました。村主さんのコンサルで引き上げた視座を、毎週のZoomで「今週やること」まで落とし込み、最後まで見届けます。</p>
+        <span class="tag">毎週のZoom</span>
+      </div>
+    </div>
+  </div>
+  <p class="more"><a href="index.html#mentors">ふたりのSNS・くわしいプロフィールを見る</a></p>
+</div></section>
+
+<section class="priceband" id="price"><div class="wrap">
+  <div class="pcard">
     <span class="en">PRICE</span>
+    <h2>ビジネスブートキャンプ 参加費</h2>
     <div class="yen">150,000円<small>（税別）</small></div>
     <p class="tax">税込 165,000円</p>
     <ul>
@@ -73,33 +257,60 @@
       ※ 日本で発行された Visa・Mastercard・JCB のクレジットカードが対象です（デビットカード・プリペイドカードは不可）。<br>
       ※ 分割の手数料や選べる回数は、お使いのカード会社によって異なります。
     </div>
-    <a class="btn" id="pay" href="#" aria-disabled="true" target="_blank" rel="noopener">決済ページは準備中です</a>
+    <a class="btn light js-pay" href="#" aria-disabled="true" target="_blank" rel="noopener">決済ページは準備中です</a>
     <p class="agree">お申し込みの前に<a href="terms.html">利用規約</a>と<a href="tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
   </div>
 </div></section>
 
-<section class="flow" style="padding-block:80px"><div class="wrap">
-  <div class="ttl" style="margin-bottom:36px"><span class="en">FLOW</span><h2>お申し込みの流れ</h2></div>
-  <div class="steps3">
-    <div><span class="n">STEP 1</span><h3>決済する</h3><p>上のボタンから決済ページへ進み、一括または分割を選んでお支払いください。</p></div>
-    <div><span class="n">STEP 2</span><h3>オープンチャットに入る</h3><p>決済完了の画面から、参加者用のオープンチャットにお入りください。</p></div>
+<section><div class="wrap">
+  <div class="ttl"><span class="en">HOW TO JOIN</span><h2>お申し込みの流れ</h2></div>
+  <div class="how">
+    <div><span class="n">STEP 1</span><h3>決済する</h3><p>申し込みボタンから決済ページへ進み、一括または分割を選んでお支払いください。</p></div>
+    <div><span class="n">STEP 2</span><h3>オープンチャットに入る</h3><p>決済が終わると完了ページが開きます。そこから参加者用のオープンチャットにお入りください。</p></div>
     <div><span class="n">STEP 3</span><h3>12月スタート</h3><p>開始日や最初の進め方は、オープンチャットでご案内します。</p></div>
   </div>
 </div></section>
 
-<section class="close" style="padding-block:90px"><div class="wrap">
-  <h2>2ヶ月後、<br>自分の商品を届けて<br>マネタイズしている自分へ。</h2>
-  <a class="btn" href="#price">お申し込みへ進む</a>
+<section style="padding-top:0"><div class="wrap faq">
+  <div class="ttl"><span class="en">FAQ</span><h2>よくある質問</h2></div>
+  <details><summary>どんな人が対象ですか？</summary><p>届けたい商品・サービスは決まっていて、これからマネタイズしていきたい方が対象です。</p></details>
+  <details><summary>分割払いはできますか？</summary><p>はい。日本で発行された Visa・Mastercard・JCB のクレジットカードなら、決済画面で分割を選べます。回数や手数料はカード会社によって異なります。</p></details>
+  <details><summary>コンサルやZoomに出られない日があったら？</summary><p>日程はオープンチャットで事前にお知らせします。出られない場合は、オープンチャットでご相談ください。</p></details>
+  <details><summary>成果は保証されますか？</summary><p>お約束はできません。結果は、取り組みや状況によって変わります。</p></details>
+  <details><summary>どこに住んでいても参加できますか？</summary><p>すべてオンラインなので、どこからでも参加できます。</p></details>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <span class="en" style="color:var(--gold2)">JOIN</span>
+  <h2 style="margin-top:16px">2ヶ月後、<br>自分の商品を届けて<br>マネタイズしている自分へ。</h2>
+  <p>12月から、一緒に走りましょう。</p>
+  <a class="btn light js-pay" href="#price">このブートキャンプに申し込む</a>
   <p class="note">※ 収入・成果を保証するものではありません。</p>
 </div></section>
 
 <footer><div class="wrap"><span>BUSINESS BOOT CAMP</span><span class="links"><a href="terms.html">利用規約</a><a href="tokushoho.html">特定商取引法に基づく表記</a></span></div></footer>
 
+<div class="sticky" id="sticky">
+  <div class="p">参加費（税込）・カード分割OK<b>165,000円</b></div>
+  <a class="btn light js-pay" href="#price">申し込む</a>
+</div>
+
 <script>
-// Stripe の決済リンク（結び）。決まったらここに入れる
+// Stripe の決済リンク（結び）
 const STRIPE_LINK = "https://buy.stripe.com/6oU4gzeBNbOx2x8gM46g80R";
-const pay = document.getElementById('pay');
-if (STRIPE_LINK) { pay.href = STRIPE_LINK; pay.removeAttribute('aria-disabled'); pay.textContent = '決済ページへ進む（一括・分割）'; }
+if (STRIPE_LINK) {
+  document.querySelectorAll('.js-pay').forEach(a => {
+    a.href = STRIPE_LINK; a.target = '_blank'; a.rel = 'noopener';
+    a.removeAttribute('aria-disabled');
+    if (a.textContent.includes('準備中')) a.textContent = '決済ページへ進む（一括・分割）';
+  });
+}
+// 料金の帯が見えている間は、下の固定バーを隠す
+const bar = document.getElementById('sticky');
+const band = document.getElementById('price');
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(es => es.forEach(e => bar.classList.toggle('hide', e.isIntersecting)), {threshold: .15}).observe(band);
+}
 </script>
 </body>
 </html>
