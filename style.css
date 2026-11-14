@@ -23,7 +23,7 @@ section{padding-block:110px}
 .top{display:flex;justify-content:space-between;align-items:center;padding-block:26px;font-family:var(--en);letter-spacing:.24em;font-size:12px;color:var(--sub);gap:12px;flex-wrap:wrap}
 .hero{padding-block:40px 110px}
 .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
-.hero h1{font-size:clamp(28px,4.4vw,48px);line-height:1.55;letter-spacing:.06em}
+.hero h1{font-size:clamp(23px,4.4vw,48px);line-height:1.55;letter-spacing:.06em}
 .hero .lead{color:var(--sub);margin-top:26px;font-size:15px;max-width:28em}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
 .pair figure{margin:0}
@@ -117,3 +117,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 }
 @media (max-width:440px){.steps{grid-template-columns:1fr}}
 @media (max-width:600px){dl{grid-template-columns:1fr}dt{white-space:normal;border-bottom:0;padding-bottom:0;padding-right:0}dd{padding-top:4px}}
+.sns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:22px}
+.sns a{display:flex;align-items:center;gap:10px;text-decoration:none;border:1px solid var(--line);background:var(--paper);padding:11px 14px;color:var(--ink);transition:border-color .2s;min-width:0}
+.sns a:hover,.sns a:focus-visible{border-color:var(--gold);outline:none}
+.sns svg{width:22px;height:22px;flex:none;color:var(--gold)}
+.sns span{font-size:12px;color:var(--sub);line-height:1.5;min-width:0;overflow-wrap:anywhere}
+.sns b{display:block;font-size:14px;color:var(--ink);font-weight:500}
+@media(max-width:600px){.sns{grid-template-columns:1fr}}
+.mentor > div{min-width:0}
