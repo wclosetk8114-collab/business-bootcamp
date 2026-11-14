@@ -116,6 +116,28 @@ section{padding-block:100px}
 .pcard .agree{font-size:12px;color:#a9a397;margin-top:16px}
 .pcard .agree a{color:#e9e4d8}
 
+
+.duo{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:26px}
+.duo img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:1px solid var(--gold2)}
+.duo span{font-family:var(--en);color:var(--gold2);font-size:22px}
+.apply{max-width:460px;margin:40px auto 0;text-align:left;background:#f7f6f2;color:var(--ink);padding:32px 28px 26px;scroll-margin-top:24px}
+.apply .ftitle{font-family:var(--min);font-size:19px;text-align:center;margin-bottom:18px;letter-spacing:.1em}
+.apply label{display:block;font-size:13px;font-weight:700;margin:16px 0 6px}
+.apply label em{font-style:normal;font-size:10px;font-weight:500;background:var(--gold);color:#fff;padding:1px 7px;margin-left:8px;vertical-align:2px}
+.apply input[type=text],.apply input[type=email]{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0}
+.apply input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(168,138,85,.18)}
+.apply .chk{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:12px;line-height:1.8;margin-top:20px}
+.apply .chk input{margin-top:5px;accent-color:var(--gold);width:16px;height:16px;flex:none}
+.apply .chk a{color:var(--ink)}
+.apply .btn::after{display:none}
+.apply .btn{width:100%;margin-top:22px;padding-block:19px;font-size:16px;cursor:pointer;font-family:inherit}
+.apply .btn.light{background:var(--deep);border-color:var(--deep);color:#fff}
+.apply .btn.light:hover,.apply .btn.light:focus-visible{background:var(--gold);border-color:var(--gold)}
+.apply .btn[disabled]{opacity:.6;pointer-events:none}
+.apply .fnote{font-size:11px;color:var(--sub);text-align:center;margin-top:12px;line-height:1.7}
+.apply .err{color:#a33a2b;font-size:13px;margin-top:12px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
 /* how to */
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .how div{border-top:1px solid var(--gold);padding-top:16px;min-width:0}
@@ -176,7 +198,7 @@ footer a{color:#8a857b}
     <h1><span style="white-space:nowrap">届けたいものは、ある。</span><br><span style="white-space:nowrap">あとは、収入に変えるだけ。</span></h1>
     <p class="lead">説明会へのご参加、ありがとうございました。村主悠真のコンサルで視座を引き上げ、毎週のZoomでつっちーが具体的な動き方をお伝えします。仲間と一緒に助け合い、成長できる2ヶ月です。</p>
     <div class="price-mini"><b>165,000円</b><span>（税込）／150,000円（税別）・カード分割OK</span></div>
-    <a class="btn js-pay" href="#price">このブートキャンプに申し込む</a>
+    <a class="btn" href="#apply-form">このブートキャンプに申し込む</a>
   </div>
   <div class="pair">
     <figure><img src="murasugi.jpg" alt="村主悠真"><figcaption><b>村主 悠真</b>一般財団法人 日本寄付財団 代表理事</figcaption></figure>
@@ -241,6 +263,7 @@ footer a{color:#8a857b}
 
 <section class="priceband" id="price"><div class="wrap">
   <div class="pcard">
+    <div class="duo"><img src="murasugi.jpg" alt="村主悠真" style="object-position:50% 20%"><span>×</span><img src="tsucchi.jpg" alt="つっちー" style="object-position:50% 15%"></div>
     <span class="en">PRICE</span>
     <h2>ビジネスブートキャンプ 参加費</h2>
     <div class="yen">150,000円<small>（税別）</small></div>
@@ -257,8 +280,18 @@ footer a{color:#8a857b}
       ※ 日本で発行された Visa・Mastercard・JCB のクレジットカードが対象です（デビットカード・プリペイドカードは不可）。<br>
       ※ 分割の手数料や選べる回数は、お使いのカード会社によって異なります。
     </div>
-    <a class="btn light js-pay" href="#" aria-disabled="true" target="_blank" rel="noopener">決済ページは準備中です</a>
-    <p class="agree">お申し込みの前に<a href="terms.html">利用規約</a>と<a href="tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
+    <form class="apply" id="apply-form" novalidate>
+      <p class="ftitle">お申し込みフォーム</p>
+      <label for="f-name">お名前<em>必須</em></label>
+      <input id="f-name" name="name" type="text" autocomplete="name" placeholder="例）土屋 千穂" required>
+      <label for="f-email">メールアドレス<em>必須</em></label>
+      <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="例）you@example.com" required>
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <label class="chk"><input id="f-agree" type="checkbox" required> <span><a href="terms.html" target="_blank" rel="noopener">利用規約</a>と<a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a>に同意します</span></label>
+      <p class="err" id="f-err" hidden></p>
+      <button class="btn light" type="submit" id="f-submit">申し込んで、決済へ進む</button>
+      <p class="fnote">送信すると決済ページ（Stripe）に移ります。一括・分割はそこで選べます。</p>
+    </form>
   </div>
 </div></section>
 
@@ -284,7 +317,7 @@ footer a{color:#8a857b}
   <span class="en" style="color:var(--gold2)">JOIN</span>
   <h2 style="margin-top:16px">2ヶ月後、<br>自分の商品を届けて<br>マネタイズしている自分へ。</h2>
   <p>12月から、一緒に走りましょう。</p>
-  <a class="btn light js-pay" href="#price">このブートキャンプに申し込む</a>
+  <a class="btn light" href="#apply-form">このブートキャンプに申し込む</a>
   <p class="note">※ 収入・成果を保証するものではありません。</p>
 </div></section>
 
@@ -292,19 +325,35 @@ footer a{color:#8a857b}
 
 <div class="sticky" id="sticky">
   <div class="p">参加費（税込）・カード分割OK<b>165,000円</b></div>
-  <a class="btn light js-pay" href="#price">申し込む</a>
+  <a class="btn light" href="#apply-form">申し込む</a>
 </div>
 
 <script>
-// Stripe の決済リンク（結び）
+// Stripe の決済リンク（結び）と、申し込みの記録先（Apps Script）
 const STRIPE_LINK = "https://buy.stripe.com/6oU4gzeBNbOx2x8gM46g80R";
-if (STRIPE_LINK) {
-  document.querySelectorAll('.js-pay').forEach(a => {
-    a.href = STRIPE_LINK; a.target = '_blank'; a.rel = 'noopener';
-    a.removeAttribute('aria-disabled');
-    if (a.textContent.includes('準備中')) a.textContent = '決済ページへ進む（一括・分割）';
-  });
-}
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
+
+const form = document.getElementById('apply-form');
+const err = document.getElementById('f-err');
+const btn = document.getElementById('f-submit');
+function showErr(m){ err.textContent = m; err.hidden = false; }
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  err.hidden = true;
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  if (!name) return showErr('お名前を入力してください。');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showErr('メールアドレスを正しく入力してください。');
+  if (!document.getElementById('f-agree').checked) return showErr('利用規約と特定商取引法に基づく表記への同意にチェックを入れてください。');
+  btn.disabled = true; btn.textContent = '送信しています…';
+  const params = new URLSearchParams(location.search);
+  const data = { kind:'bootcamp', name, email, company: form.company.value, ref: params.get('ref') || '', page: location.href };
+  const go = () => { location.href = STRIPE_LINK + '?prefilled_email=' + encodeURIComponent(email); };
+  const timer = setTimeout(go, 4000); // 記録が遅くても決済へ進める
+  fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data) })
+    .catch(() => {}).finally(() => { clearTimeout(timer); go(); });
+});
+
 // 料金の帯が見えている間は、下の固定バーを隠す
 const bar = document.getElementById('sticky');
 const band = document.getElementById('price');
