@@ -5,7 +5,7 @@
 var BC_SHEET   = 'ブートキャンプ申込';
 var BC_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '紹介者', '送信元ページ'];
 var BC_CONTACT = 'w.closet.k8114@gmail.com';
-var BC_OPENCHAT = 'https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg';
+var BC_OPENCHAT = 'https://line.me/ti/g2/1X7Iq3kud7pfhoz3N8REaz47xCOjIOV1K1rMVQ';
 
 function handleBootcamp(d) {
   appendTo(BC_SHEET, BC_HEADERS, [new Date(), d.name || '', d.email || '', d.ref || '', d.page || '']);
