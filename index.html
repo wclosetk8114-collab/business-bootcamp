@@ -39,6 +39,12 @@
 .btn.line{background:#06c755;border-color:#06c755;margin-top:20px}
 .btn.line:hover,.btn.line:focus-visible{background:#05a948;border-color:#05a948}
 @media (max-width:440px){.dates{grid-template-columns:1fr}}
+.oc-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:12px;color:var(--sub);margin-top:16px}
+.oc-link{display:inline-flex;align-items:center;gap:8px;color:#06a84a;font-weight:700;font-size:13px;text-decoration:none;border:1px solid #06c755;padding:7px 16px;border-radius:999px;background:#fff}
+.oc-link::before{content:"";width:8px;height:8px;border-radius:50%;background:#06c755}
+.oc-link:hover,.oc-link:focus-visible{background:#06c755;color:#fff;outline:none}
+.oc-link:hover::before{background:#fff}
+.oc-link.light{background:transparent;color:#7fe0a6;border-color:#4fbf7d}
 </style>
 </head>
 <body>
@@ -58,6 +64,7 @@
     </div>
     <a class="btn" href="#brief">説明会に申し込む（無料）</a>
     <p style="font-size:13px;color:var(--sub);margin-top:14px">説明会：11月22日（日）22:00／11月29日（日）22:00　オンライン・アーカイブあり</p>
+    <p class="oc-wrap">先にオープンチャットだけ入ることもできます　<a class="oc-link" href="https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg" target="_blank" rel="noopener">説明会のオープンチャットに入る</a></p>
   </div>
   <div class="pair">
     <figure><img src="murasugi.jpg" alt="村主悠真"><figcaption><b>村主 悠真</b>一般財団法人 日本寄付財団 代表理事</figcaption></figure>
@@ -183,6 +190,7 @@
       <li><b>11月29日（日）</b><span>22:00〜</span></li>
     </ul>
     <p class="bnote">どちらも参加できない方も大丈夫です。アーカイブ（録画）を説明会のオープンチャットで配信します。</p>
+    <p class="oc-wrap" style="justify-content:center"><a class="oc-link" href="https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg" target="_blank" rel="noopener">説明会のオープンチャットに入る</a></p>
     <form id="brief-form" novalidate>
       <label for="b-name">お名前<em>必須</em></label>
       <input id="b-name" name="name" type="text" autocomplete="name" placeholder="例）土屋 千穂">
@@ -214,6 +222,7 @@
   <h2 style="margin-top:16px">2ヶ月後、<br>自分の商品を届けて<br>マネタイズしている自分へ。</h2>
   <p>まずは説明会へ。オンライン・無料・アーカイブあり。</p>
   <a class="btn" href="#brief">説明会に申し込む</a>
+  <p class="oc-wrap" style="justify-content:center;margin-top:18px"><a class="oc-link light" href="https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg" target="_blank" rel="noopener">説明会のオープンチャットに入る</a></p>
   <p class="note">※ 収入・成果を保証するものではありません。</p>
 </div></section>
 
