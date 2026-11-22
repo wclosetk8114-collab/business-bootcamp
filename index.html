@@ -65,6 +65,34 @@
 .msgbox p + p{margin-top:12px}
 .msgbox .sign{text-align:right;font-family:var(--min);color:var(--gold);margin-top:18px}
 @media (max-width:600px){.msgbox{padding:28px 22px}.tl li{gap:14px}}
+
+.wkbar{max-width:880px;margin-bottom:48px}
+.wkm{display:grid;grid-template-columns:1fr 1fr;font-family:var(--en);letter-spacing:.24em;color:var(--gold);font-size:12px;margin-bottom:8px}
+.wkg{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.wk2{background:#fff;border:1px solid var(--line);padding:12px 2px;text-align:center;min-width:0}
+.wk2 i{display:block;font-style:normal;font-family:var(--en);font-size:15px;color:var(--sub);line-height:1.4}
+.wk2 b{display:block;font-size:11px;font-weight:500;color:var(--sub);white-space:nowrap;letter-spacing:0}
+.wk2.c{background:#23211d;border-color:#23211d}
+.wk2.c i,.wk2.c b{color:#fff}
+.wk2.f{border:1.5px solid var(--gold)}
+.wk2.f b{color:var(--gold)}
+.wkl{font-size:12px;color:var(--sub);margin-top:12px}
+.dt{display:inline-block;width:9px;height:9px;border:1px solid var(--line);background:#fff;margin-right:6px;vertical-align:-1px}
+.dt.c{background:#23211d;border-color:#23211d}
+.months{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.month{background:#fff;padding:32px 28px;min-width:0;border-top:2px solid var(--gold)}
+.month .mh{display:flex;align-items:baseline;gap:12px}
+.month .mh b{font-family:var(--en);font-size:40px;font-weight:400;color:var(--gold);line-height:1}
+.month .mh span{font-size:12px;color:var(--sub);letter-spacing:.12em}
+.month h3{font-size:19px;margin:8px 0 16px}
+.ms{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.ms .w{font-family:var(--en);font-size:13px;color:var(--gold);letter-spacing:.12em;padding-top:2px}
+.ms > div{min-width:0}
+.ms .t{font-weight:700;font-size:15px;line-height:1.7}
+.ms .d{font-size:13px;color:var(--sub);line-height:1.85;margin-top:2px}
+.ms.key .t::before{content:"村主";font-size:10px;font-weight:500;color:#fff;background:#23211d;padding:2px 8px;margin-right:8px;vertical-align:2px}
+.ms.tc .t::before{content:"つっちー";font-size:10px;font-weight:500;color:var(--gold);border:1px solid var(--gold);padding:1px 7px;margin-right:8px;vertical-align:2px}
+@media (max-width:820px){.wkg{grid-template-columns:repeat(4,1fr)}.wkm{display:none}.months{grid-template-columns:1fr}.wk2 b{font-size:10px}}
 </style>
 </head>
 <body>
@@ -107,13 +135,39 @@
   </div>
 </div></section>
 
-<section class="flow"><div class="wrap">
-  <div class="ttl"><span class="en">FLOW</span><h2>2ヶ月の進み方</h2><p>すべてオンライン。週ごとにやることを決めて、翌週に振り返ります。</p></div>
-  <div class="steps">
-    <div class="step"><span class="wk">WEEK 1–2</span><h3>決める</h3><p>2ヶ月のゴールを一緒に決めて、商品の強み・値段・届ける相手・売り方を整理します。</p></div>
-    <div class="step"><span class="wk">WEEK 3–4</span><h3>整える</h3><p>申し込みページやSNS、案内文など、届ける準備を整えます。</p></div>
-    <div class="step"><span class="wk">WEEK 5–6</span><h3>届ける</h3><p>発信と声かけで、最初のお客さまに届けます。</p></div>
-    <div class="step"><span class="wk">WEEK 7–8</span><h3>育てる</h3><p>反応を振り返り、この先も続けていくための形にします。</p></div>
+<section class="flow" id="flow"><div class="wrap">
+  <div class="ttl"><span class="en">8 WEEKS</span><h2>2ヶ月の流れ</h2><p>すべてオンライン。村主悠真のプチコンサルは12月の初めと終わりの2回。そのあいだと1月は、つっちーと毎週動きます。</p></div>
+  <div class="wkbar">
+    <div class="wkm"><span>DEC. 2026</span><span>JAN. 2027</span></div>
+    <div class="wkg">
+      <div class="wk2 c"><i>W1</i><b>プチコンサル</b></div>
+      <div class="wk2"><i>W2</i><b>行動</b></div>
+      <div class="wk2"><i>W3</i><b>行動</b></div>
+      <div class="wk2 c"><i>W4</i><b>プチコンサル</b></div>
+      <div class="wk2"><i>W5</i><b>行動</b></div>
+      <div class="wk2"><i>W6</i><b>行動</b></div>
+      <div class="wk2"><i>W7</i><b>行動</b></div>
+      <div class="wk2 f"><i>W8</i><b>ゴール</b></div>
+    </div>
+    <p class="wkl"><span class="dt c"></span>村主悠真のプチコンサル　<span class="dt"></span>つっちーと毎週の行動</p>
+  </div>
+  <div class="months">
+    <div class="month">
+      <div class="mh"><b>Dec.</b><span>2026年12月</span></div>
+      <h3>枠をこわし、方向を決める</h3>
+      <div class="ms key"><span class="w">WEEK 1</span><div><p class="t">キックオフ・プチコンサル①</p><p class="d">視座を引き上げ、思考の枠に気づく。2ヶ月で目指すゴールを、つっちーと一緒に決めます。</p></div></div>
+      <div class="ms tc"><span class="w">WEEK 2</span><div><p class="t">行動プランをつくる</p><p class="d">気づきを「今週やること」まで分解して、最初の一歩を踏み出します。</p></div></div>
+      <div class="ms tc"><span class="w">WEEK 3</span><div><p class="t">動いて、ふりかえる</p><p class="d">やったこと・できなかったことを確かめて、次の一手を決めます。</p></div></div>
+      <div class="ms key"><span class="w">WEEK 4</span><div><p class="t">プチコンサル②</p><p class="d">1ヶ月動いた自分を、もう一段高い視点で見直します。年明けの進め方を固めます。</p></div></div>
+    </div>
+    <div class="month">
+      <div class="mh"><b>Jan.</b><span>2027年1月</span></div>
+      <h3>毎週動いて、形にする</h3>
+      <div class="ms tc"><span class="w">WEEK 5</span><div><p class="t">1月の行動計画</p><p class="d">プチコンサル②の気づきをもとに、1月の4週間でやることを決めます。</p></div></div>
+      <div class="ms tc"><span class="w">WEEK 6</span><div><p class="t">届ける</p><p class="d">発信・提案・販売など、商品をお客さまに届ける行動に集中します。</p></div></div>
+      <div class="ms tc"><span class="w">WEEK 7</span><div><p class="t">直して、もう一回</p><p class="d">反応を見て直します。止まりそうなときは、ここで背中を押します。</p></div></div>
+      <div class="ms tc"><span class="w">WEEK 8</span><div><p class="t">ゴールと、これから</p><p class="d">2ヶ月をふりかえり、終わったあとも続けていける形をつくります。</p></div></div>
+    </div>
   </div>
 </div></section>
 
