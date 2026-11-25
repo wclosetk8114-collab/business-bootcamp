@@ -16,7 +16,7 @@
 .bcard{max-width:560px;margin:0 auto;text-align:center}
 .bcard h2{font-size:clamp(24px,3.4vw,32px);margin-top:10px}
 .bsub{color:var(--sub);font-size:14px;margin-top:6px}
-.dates{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dates{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .dates li{border:1px solid var(--gold);padding:16px 10px;display:flex;flex-direction:column;gap:2px}
 .dates b{font-family:var(--min);font-weight:500;font-size:18px}
 .dates span{font-family:var(--en);color:var(--gold);letter-spacing:.12em;font-size:15px}
@@ -38,7 +38,7 @@
 .done p{font-size:14px;line-height:1.9}
 .btn.line{background:#06c755;border-color:#06c755;margin-top:20px}
 .btn.line:hover,.btn.line:focus-visible{background:#05a948;border-color:#05a948}
-@media (max-width:440px){.dates{grid-template-columns:1fr}}
+@media (max-width:520px){.dates{grid-template-columns:1fr}}
 .oc-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:12px;color:var(--sub);margin-top:16px}
 .oc-link{display:inline-flex;align-items:center;gap:8px;color:#06a84a;font-weight:700;font-size:13px;text-decoration:none;border:1px solid #06c755;padding:7px 16px;border-radius:999px;background:#fff}
 .oc-link::before{content:"";width:8px;height:8px;border-radius:50%;background:#06c755}
@@ -119,7 +119,7 @@
       <div><span>開催</span>2026年12月〜2027年1月</div>
     </div>
     <a class="btn" href="#brief">説明会に申し込む（無料）</a>
-    <p style="font-size:13px;color:var(--sub);margin-top:14px">説明会：11月22日（日）22:00／11月29日（日）22:00　オンライン・アーカイブあり</p>
+    <p style="font-size:13px;color:var(--sub);margin-top:14px">説明会：11月22日（日）22:00／11月29日（日）22:00／12月4日（金）22:00　オンライン・アーカイブあり</p>
     <p class="oc-wrap">先にオープンチャットだけ入ることもできます　<a class="oc-link" href="https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg" target="_blank" rel="noopener">説明会のオープンチャットに入る</a></p>
   </div>
   <div class="pair">
@@ -267,7 +267,7 @@
       <dt>内容</dt><dd>村主悠真のプチコンサル（月1回・全2回）／つっちーの才能の見える化・ゴール設定サポート・毎週のZoom（何を・どれくらい・どう動くかをお伝えします）／特典：つっちー主催の瞑想コミュニティ「KUU」12月・1月無料</dd>
       <dt>講師</dt><dd>村主悠真・つっちー</dd>
       <dt>開催時期</dt><dd>2026年12月〜2027年1月</dd>
-      <dt>説明会</dt><dd>11月22日（日）22:00／11月29日（日）22:00（オンライン・無料・アーカイブあり）</dd>
+      <dt>説明会</dt><dd>11月22日（日）22:00／11月29日（日）22:00／12月4日（金）22:00（オンライン・無料・アーカイブあり）</dd>
       <dt>料金</dt><dd>説明会でご案内します</dd>
     </dl>
   </div>
@@ -288,8 +288,9 @@
     <ul class="dates">
       <li><b>11月22日（日）</b><span>22:00〜</span></li>
       <li><b>11月29日（日）</b><span>22:00〜</span></li>
+      <li><b>12月4日（金）</b><span>22:00〜</span></li>
     </ul>
-    <p class="bnote">どちらも参加できない方も大丈夫です。アーカイブ（録画）を説明会のオープンチャットで配信します。</p>
+    <p class="bnote">どの日も参加できない方も大丈夫です。アーカイブ（録画）を説明会のオープンチャットで配信します。</p>
     <p class="oc-wrap" style="justify-content:center"><a class="oc-link" href="https://line.me/ti/g2/GYsm-IMVcy-HdyVekUXhbRN8p0aC4tSzVjt2Kg" target="_blank" rel="noopener">説明会のオープンチャットに入る</a></p>
     <form id="brief-form" novalidate>
       <label for="b-name">お名前<em>必須</em></label>
@@ -300,7 +301,8 @@
         <legend>参加したい日<em>必須</em></legend>
         <label class="opt"><input type="radio" name="date" value="11月22日（日）22:00"> 11月22日（日）22:00</label>
         <label class="opt"><input type="radio" name="date" value="11月29日（日）22:00"> 11月29日（日）22:00</label>
-        <label class="opt"><input type="radio" name="date" value="アーカイブで見る"> どちらも難しいので、アーカイブで見る</label>
+        <label class="opt"><input type="radio" name="date" value="12月4日（金）22:00"> 12月4日（金）22:00</label>
+        <label class="opt"><input type="radio" name="date" value="アーカイブで見る"> どの日も難しいので、アーカイブで見る</label>
         <label class="opt"><input type="radio" name="date" value="個別に相談したい"> 個別に説明を聞きたい</label>
       </fieldset>
       <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
